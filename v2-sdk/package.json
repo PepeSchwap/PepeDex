@@ -1,0 +1,59 @@
+{
+  "name": "@uniswap/sdk",
+  "license": "MIT",
+  "version": "3.0.2",
+  "description": "🛠 An SDK for building applications on top of DexTop.",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": "https://tokens.app.pulsex.com/pulsex-extended-v0.1.2.tokenlist.json",
+  "keywords": [
+    "DexTop",
+    "ethereum"
+  ],
+  "module": "dist/sdk.esm.js",
+  "scripts": {
+    "lint": "tsdx lint src test",
+    "build": "tsdx build",
+    "start": "tsdx watch",
+    "test": "tsdx test",
+    "prepublishOnly": "tsdx build"
+  },
+  "dependencies": {
+    "@uniswap/v2-core": "1.0.0",
+    "big.js": "5.2.2",
+    "decimal.js-light": "2.5.0",
+    "jsbi": "3.1.1",
+    "tiny-invariant": "1.1.0",
+    "tiny-warning": "1.0.3",
+    "toformat": "2.0.0"
+  },
+ "peerDependencies": {
+  "@ethersproject/address": "5.7.0",
+  "@ethersproject/contracts": "5.7.0",
+  "@ethersproject/networks": "5.7.0",
+  "@ethersproject/providers": "5.7.2",
+  "@ethersproject/solidity": "5.7.0"
+  },
+  "devDependencies": {
+    "@ethersproject/address": "5.7.0",
+    "@ethersproject/contracts": "5.7.0",
+    "@ethersproject/networks": "5.7.0",
+    "@ethersproject/providers": "5.7.0",
+    "@ethersproject/solidity": "5.7.0",
+    "@types/big.js": "4.0.5",
+    "tsdx": "0.12.3"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": true
+  }
+}
+
+

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy and Burn Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: black;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      text-shadow: 0 0 2px #00ffcc, 0 0 20px #00ffcc;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    button {
+      background: #000;
+      color: #00ffcc;
+      border: 2px solid #00ffcc;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      text-shadow: 0 0 10px #00ffcc;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    button:hover {
+      background: #00ffcc;
+      color: #000;
+      box-shadow: 0 0 20px #00ffcc;
+      font-family: 'Orbitron', sans-serif;
+      border: 2px solid #000;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    table th {
+      background: #0a0a2a;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc;
+      padding: 10px;
+    }
+    
+
+    table td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      max-width: 10px; 
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+
+    #walletAddress {
+      margin-bottom: 20px;
+      font-size: 18px;
+      text-align: center;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc;
+    }
+
+    .pagination {
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .pagination button {
+      margin: 0 5px;
+      padding: 10px 15px;
+      background: #000;
+      color: #00ffcc;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 2px solid #00ffcc;
+    }
+    .pagination button:hover { 
+      margin: 0 5px;
+      padding: 10px 15px;
+      background: #00ffcc;
+      color: #000;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 2px solid #000;
+    }
+
+    .pagination button.disabled {
+      background: #000;
+      cursor: not-allowed;
+    }
+    #loadingIndicator {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black; 
+  color: #00ffcc;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: none;
+  border: 2px solid #00ffcc;
+}
+#stars,
+#stars2,
+#stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+   
+    z-index: -1; 
+    pointer-events: none; 
+}
+.popup {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: none;
+  border: 1px solid #00ffcc;
+}
+
+.popup-content {
+  text-align: center;
+}
+
+.popup-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 40px;
+  cursor: pointer;
+  color: #00ffcc;
+}
+
+
+  </style>
+</head>
+<body>
+  <h1>Buy and Burn Dashboard</h1>
+  
+  <button id="connectWallet">Connect Wallet</button>
+  <br><br><br><br>
+  <div id="walletAddress">Not connected</div>
+ 
+ 
+ 
+<div class="popup" id="popup" style="display: none;">
+  <div class="popup-title"></div>
+  <div class="popup-message"></div>
+</div>
+
+
+
+  
+  <table id="lpTable">
+    <thead>
+      <tr>
+        <th>Pair</th>
+        <th>Balance</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div id="loadingIndicator" style="display: none;">Loading LP Data...</div>
+  <div class="pagination">
+    <button id="prevPage" >Previous</button>
+    <button id="nextPage">Next</button>
+    <button onclick="toggleOrder()">Toggle Order</button>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <center><a href="https://dex.dextop.pro/burn/full/" target="_blank"><button>See the full list</button></a></center>
+   
+  <span id='stars'></span>
+    <span id='stars2'></span>
+    <span id='stars3'></span>
+  <script src="ball.js" type="application/javascript"></script>
+ <script src="burn1.js" type="application/javascript"></script>
+</body>
+</html>
